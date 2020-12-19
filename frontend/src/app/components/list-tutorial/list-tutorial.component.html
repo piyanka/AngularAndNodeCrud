@@ -1,0 +1,51 @@
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="search by name" [(ngModel)]="firstName" />
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" (click)="searchTitle()">
+          search
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4>Student List</h4>
+    <table>
+      <tr>
+        <th *ngFor = "let column of headers">{{column}}</th>
+      </tr>
+      <tr *ngFor = "let stu of tutorials; let i = index">
+        <td *ngFor="let column of headers ">{{stu[column]}}</td>
+        <td> <button (click)="editRow(stu,i)"><i class="fa fa-trash"></i>Edit</button></td>
+        <td> <button (click)="deleteRow(stu,i)"><i class="fa fa-trash"></i>Delete</button></td></tr>
+    </table>
+
+    <button class="m-3 btn btn-sm btn-danger" (click)="deleteAllTutorials()">Remove All</button>
+  </div>
+  <div class="col-md-6">
+      <div *ngIf="currentData">
+        <h4>Student Detail</h4>
+        <div>
+          <label><strong>First Name:</strong>{{currentData.firstName}}</label>
+        </div>
+        <div>
+          <label><strong>Last Name:</strong>{{currentData.lastName}}</label>
+        </div>
+        <div>
+            <label><strong>Subject Name:</strong>{{currentData.subjectName}}</label>
+          </div>
+          <div>
+              <label><strong>Marks:</strong>{{currentData.marks}}</label>
+          </div>
+          <div>
+              <label><strong>Class:</strong>{{currentData.class}}</label>
+          </div>
+          <a class="badge badge-warning" href="/edit/{{currentData.id}}">
+            Edit
+          </a>
+      </div>
+        <div>
+      </div>
+    </div>
+</div>

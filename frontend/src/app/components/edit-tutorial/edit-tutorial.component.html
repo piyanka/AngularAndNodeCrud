@@ -1,0 +1,30 @@
+<div *ngIf="currentData">
+    <h4>Student Detail</h4>
+    <div>
+        <label><strong>First Name:</strong></label>
+        <input type="text" class="form-control" id="firstName" [(ngModel)]="currentData.firstName" name="firstName" />
+    </div>
+    <div>
+        <label><strong>Last Name:</strong></label>
+        <input type="text" class="form-control" id="lastName" [(ngModel)]="currentData.lastName" name="lastName" />
+    </div>
+    <div>
+        <label><strong>Subject Name:</strong></label>
+        <input type="text" class="form-control" id="subjectName" [(ngModel)]="currentData.subjectName"
+            name="subjectName" />
+    </div>
+    <div>
+        <label><strong>Marks:</strong></label>
+        <input type="text" class="form-control" id="marks" [(ngModel)]="currentData.marks" name="marks" />
+    </div>
+    <div>
+        <label><strong>Class:</strong></label>
+        <input type="text" class="form-control" id="class" [(ngModel)]="currentData.class" name="class" />
+    </div>
+    <button type="submit" class="badge badge-success" (click)="updateTutorial()">
+        Update</button>
+</div>
+<div *ngIf="!currentData">
+    <br />
+    <p>Please Click on a Tutorial....</p>
+</div>
